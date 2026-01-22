@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,52 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DocEase - Gestion Clinique Intelligente</title>
     
-    <!-- PWA Config -->
-    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="./pages/manifest.json">
     <meta name="theme-color" content="#10B981">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="https://cdn0.iconfinder.com/data/icons/medical-services-10/512/medical_doctor_stethoscope_medicine_healthcare_hospital-512.png">
     
-    <!-- Styles -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./pages/style.css">
     
     <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@19.0.0",
-    "react-dom": "https://esm.sh/react-dom@19.0.0",
-    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
-    "lucide-react": "https://esm.sh/lucide-react@0.462.0?external=react",
-    "uuid": "https://esm.sh/uuid@11.0.3",
-    "recharts": "https://esm.sh/recharts@2.13.3?external=react,react-dom",
-    "react-router": "https://esm.sh/react-router@7.1.1?external=react,react-dom",
-    "react-router/dom": "https://esm.sh/react-router@7.1.1/dom?external=react,react-dom",
-    "react-router-dom": "https://esm.sh/react-router-dom@7.1.1?external=react,react-dom,react-router",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "vite": "https://esm.sh/vite@^7.3.1",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
-  }
-}
-</script>
+    {
+      "imports": {
+        "react": "https://esm.sh/react@19.0.0",
+        "react-dom": "https://esm.sh/react-dom@19.0.0",
+        "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+        "lucide-react": "https://esm.sh/lucide-react@0.462.0?external=react",
+        "uuid": "https://esm.sh/uuid@11.0.3",
+        "recharts": "https://esm.sh/recharts@2.13.3?external=react,react-dom",
+        "react-router-dom": "https://esm.sh/react-router-dom@7.1.1?external=react,react-dom"
+      }
+    }
+    </script>
 </head>
 <body>
-    <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+    <div id="root">
+        <div style="display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; color: #666;">
+            Chargement de DocEase...
+        </div>
+    </div>
+
+    <script type="module" src="./pages/index.js"></script>
+
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-                const isProduction = window.location.hostname.includes('github.io');
-                if (isLocal || isProduction) {
-                  navigator.serviceWorker.register('./sw.js')
-                      .then(reg => console.log('DocEase PWA Active'))
-                      .catch(err => console.debug('PWA registration skipped'));
-                }
+                navigator.serviceWorker.register('./pages/sw.js')
+                    .then(reg => console.log('DocEase PWA Active'))
+                    .catch(err => console.debug('PWA registration skipped'));
             });
         }
     </script>
