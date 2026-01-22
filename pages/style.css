@@ -1,0 +1,78 @@
+/* DocEase Core Styles */
+:root {
+    --primary: #10B981;
+    --primary-dark: #059669;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.font-arabic {
+    font-family: 'Amiri', serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* AI Assistant Glassmorphism */
+.ai-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Print Optimization */
+@media print {
+    .no-print { display: none !important; }
+    .print-only { display: block !important; }
+    body { background-color: white !important; padding: 0 !important; margin: 0 !important; }
+    
+    .prescription-page {
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+        border: none;
+    }
+}
+
+.print-only { display: none; }
+
+/* Dashboard Cards */
+.stat-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.1);
+}
